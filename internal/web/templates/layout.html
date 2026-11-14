@@ -4,50 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{.Title}} · IdeaForge</title>
-  <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержимому</a>
-  <header class="site-header">
+  <header>
     <nav aria-label="Основная навигация">
-      <a class="brand" href="/">IdeaForge</a>
+      <a href="/">Главная</a>
       <a href="/catalog">Каталог</a>
       <a href="/me/projects">Мои проекты</a>
-      <a href="/community">Сообщество</a>
       <a href="/projects/new">Создать проект</a>
-      <a href="/me/notifications">Уведомления</a>
+      <a href="/community">Сообщество</a>
       <a href="/me">Профиль</a>
       <a href="/login">Войти</a>
-      <form class="nav-search" action="/catalog" method="get" role="search" aria-label="Поиск по сайту">
-        <input type="search" name="q" aria-label="Поиск проектов" placeholder="Поиск проектов">
-      </form>
     </nav>
+    <form action="/search" method="get">
+      <button type="submit">Поиск</button>
+    </form>
   </header>
-  <main id="main" class="container">
+  <main>
+    <h1>{{.Title}}</h1>
 {{end}}
 {{define "end"}}
   </main>
-  <footer class="container site-footer">Каркас IdeaForge. Формы и данные демонстрационные.</footer>
 </body>
 </html>
-{{end}}
-{{define "project-card"}}
-  <article class="panel">
-    <h3><a href="/projects/project-1">Telegram-бот для уведомлений об изменении расписания</a></h3>
-    <p>Бот сообщает студенту о переносе или отмене занятия.</p>
-    <p class="metadata">Разработка · Начальный уровень · 2–3 недели</p>
-  </article>
-{{end}}
-{{define "solution-card"}}
-  <article class="panel">
-    <h3><a href="/solutions/solution-1">Бот для проверки расписания</a></h3>
-    <p>Пример опубликованного решения проекта про расписание.</p>
-  </article>
-{{end}}
-{{define "account-nav"}}
-  <nav class="links" aria-label="Личный кабинет">
-    <a href="/me">Мой профиль</a><a href="/me/projects">Проекты</a>
-    <a href="/me/teams">Команды</a><a href="/me/notifications">Уведомления</a>
-    <a href="/me/settings">Настройки</a>
-  </nav>
 {{end}}

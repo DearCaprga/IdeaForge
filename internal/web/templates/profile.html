@@ -1,9 +1,0 @@
-{{template "start" .}}
-{{if not .ResourceID}}{{template "account-nav"}}{{end}}
-<h1>{{.Title}}</h1>
-<h2>Алекс Морозов</h2>
-<p>Интересы и навыки: Python, автоматизация, веб-разработка.</p>
-<section><h2>Опубликованные проекты</h2>{{template "project-card"}}</section>
-<section><h2>Опубликованные решения</h2>{{template "solution-card"}}</section>
-<section><h2>Достижения</h2><p>Первый проект.</p></section>
-{{template "end" .}}

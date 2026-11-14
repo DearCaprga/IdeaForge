@@ -1,9 +1,3 @@
 {{template "start" .}}
-<h1>{{.Title}}</h1>
-<form class="panel" method="post">
-  <label>Почта <input name="email" type="email" autocomplete="username" required></label>
-  <label>Пароль <input name="password" type="password" autocomplete="current-password" required></label>
-  <button type="button" disabled>Войти</button>
-</form>
-<p><a href="/register">Создать аккаунт</a></p>
+<a href="/register">Зарегистрироваться</a>
 {{template "end" .}}

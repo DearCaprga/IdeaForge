@@ -1,14 +1,4 @@
 {{template "start" .}}
-<p><a href="/projects/{{.ResourceID}}">К проекту</a></p>
-<h1>{{.Title}}</h1>
-<p>Прогресс: 1 из 5</p>
-<progress value="1" max="5">1 из 5</progress>
-<ol>
-  <li><label><input type="checkbox" checked disabled> Требования</label></li>
-  <li><label><input type="checkbox" disabled> Макет диалога</label></li>
-  <li><label><input type="checkbox" disabled> Разработка</label></li>
-  <li><label><input type="checkbox" disabled> Тестирование</label></li>
-  <li><label><input type="checkbox" disabled> Демонстрация</label></li>
-</ol>
-<p><a href="/projects/{{.ResourceID}}/solutions/new">Опубликовать решение</a></p>
+<a href="/projects/{{.ResourceID}}">К проекту</a>
+<a href="/projects/{{.ResourceID}}/solutions/new">Опубликовать решение</a>
 {{template "end" .}}

@@ -1,20 +1,3 @@
 {{template "start" .}}
-<p><a href="/projects/{{.ResourceID}}">К проекту</a></p>
-<h1>{{.Title}}</h1>
-<article class="panel">
-  <h2><a href="/teams/team-1">Команда бота расписания</a></h2>
-  <p>Ищем разработчика на Python.</p>
-</article>
-<section>
-  <h2>Создать объявление</h2>
-  <form>
-    <label>Название команды <input name="name"></label>
-    <label>Описание <textarea name="description"></textarea></label>
-    <label>Роль <input name="role"></label>
-    <label>Навыки <input name="skills"></label>
-    <label>Мест на роль <input name="positions" type="number" min="1"></label>
-    <label>Приём заявок до <input name="recruiting_until" type="date"></label>
-    <button type="button" disabled>Создать команду</button>
-  </form>
-</section>
+<a href="/teams/team-1">Открыть команду</a>
 {{template "end" .}}

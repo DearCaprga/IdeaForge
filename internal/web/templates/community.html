@@ -1,7 +1,7 @@
 {{template "start" .}}
-<h1>{{.Title}}</h1>
-<section><h2>Обсуждения</h2><p><a href="/projects/project-1#discussion">Обсуждение бота для расписания</a></p></section>
-<section><h2>Авторы и решения</h2>{{template "solution-card"}}</section>
-<section><h2>Подборки</h2><p><a href="/collections/collection-1">Первые проекты по разработке</a></p></section>
-<section><h2>Команды</h2><p><a href="/teams/team-1">Команда бота расписания</a></p></section>
+<ul>
+  <li><a href="/projects/project-1/discussion">Обсуждение проекта</a></li>
+  <li><a href="/collections/collection-1">Подборка проектов</a></li>
+  <li><a href="/teams/team-1">Команда</a></li>
+</ul>
 {{template "end" .}}

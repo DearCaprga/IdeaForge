@@ -1,4 +1,4 @@
-// Package web provides the page structure for the IdeaForge scaffold.
+// Package web registers placeholder pages and their navigation.
 package web
 
 import (
@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//go:embed templates/*.html static/styles.css
+//go:embed templates/*.html
 var files embed.FS
 
 type pageView struct {
@@ -25,34 +25,36 @@ type screen struct {
 }
 
 var screens = []screen{
-	{Path: "/", Title: "Главная", Template: "home.html"},
+	{Path: "/", Title: "Главная", Template: "page.html"},
+	{Path: "/search", Title: "Поиск", Template: "page.html"},
 	{Path: "/catalog", Title: "Каталог проектов", Template: "catalog.html"},
 	{Path: "/projects/new", Title: "Создать проект", Template: "project-form.html"},
 	{Path: "/projects/:projectId", Title: "Проект", Template: "project.html", IDParam: "projectId"},
 	{Path: "/projects/:projectId/edit", Title: "Редактировать проект", Template: "project-form.html", IDParam: "projectId"},
-	{Path: "/projects/:projectId/preview", Title: "Предпросмотр проекта", Template: "project-preview.html", IDParam: "projectId"},
+	{Path: "/projects/:projectId/preview", Title: "Предпросмотр проекта", Template: "page.html"},
 	{Path: "/projects/:projectId/work", Title: "Этапы работы", Template: "work.html", IDParam: "projectId"},
-	{Path: "/projects/:projectId/solutions/new", Title: "Опубликовать решение", Template: "solution-form.html", IDParam: "projectId"},
+	{Path: "/projects/:projectId/discussion", Title: "Обсуждение проекта", Template: "page.html"},
+	{Path: "/projects/:projectId/solutions", Title: "Решения проекта", Template: "solutions.html", IDParam: "projectId"},
+	{Path: "/projects/:projectId/solutions/new", Title: "Опубликовать решение", Template: "page.html"},
 	{Path: "/solutions/:solutionId", Title: "Решение", Template: "solution.html", IDParam: "solutionId"},
-	{Path: "/solutions/:solutionId/edit", Title: "Редактировать решение", Template: "solution-form.html", IDParam: "solutionId"},
+	{Path: "/solutions/:solutionId/edit", Title: "Редактировать решение", Template: "page.html"},
 	{Path: "/login", Title: "Войти", Template: "login.html"},
 	{Path: "/register", Title: "Регистрация", Template: "register.html"},
-	{Path: "/me/projects", Title: "Мои проекты", Template: "my-projects.html"},
-	{Path: "/me", Title: "Мой профиль", Template: "profile.html"},
-	{Path: "/users/:userId", Title: "Профиль участника", Template: "profile.html", IDParam: "userId"},
-	{Path: "/me/settings", Title: "Настройки", Template: "settings.html"},
-	{Path: "/me/notifications", Title: "Уведомления", Template: "notifications.html"},
-	{Path: "/me/teams", Title: "Мои команды", Template: "my-teams.html"},
-	{Path: "/projects/:projectId/teams", Title: "Поиск команды", Template: "teams.html", IDParam: "projectId"},
-	{Path: "/teams/:teamId", Title: "Команда", Template: "team.html", IDParam: "teamId"},
+	{Path: "/me/projects", Title: "Мои проекты", Template: "page.html"},
+	{Path: "/me", Title: "Мой профиль", Template: "account.html"},
+	{Path: "/users/:userId", Title: "Профиль участника", Template: "page.html"},
+	{Path: "/me/settings", Title: "Настройки", Template: "page.html"},
+	{Path: "/me/notifications", Title: "Уведомления", Template: "page.html"},
+	{Path: "/me/teams", Title: "Мои команды", Template: "page.html"},
+	{Path: "/projects/:projectId/teams", Title: "Поиск команды", Template: "teams.html"},
+	{Path: "/teams/:teamId", Title: "Команда", Template: "page.html"},
 	{Path: "/community", Title: "Сообщество", Template: "community.html"},
-	{Path: "/collections/:collectionId", Title: "Подборка проектов", Template: "collection.html", IDParam: "collectionId"},
-	{Path: "/admin", Title: "Модерация и управление", Template: "admin.html"},
+	{Path: "/collections/:collectionId", Title: "Подборка проектов", Template: "page.html"},
+	{Path: "/admin", Title: "Модерация и управление", Template: "page.html"},
 }
 
 func RegisterRoutes(router *gin.Engine) {
 	router.SetHTMLTemplate(template.Must(template.ParseFS(files, "templates/*.html")))
-	router.StaticFileFS("/assets/styles.css", "static/styles.css", http.FS(files))
 	for _, view := range screens {
 		router.GET(view.Path, renderScreen(view))
 	}
