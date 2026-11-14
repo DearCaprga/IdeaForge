@@ -1,0 +1,29 @@
+{{template "start" .}}
+{{template "account-nav"}}
+<h1>{{.Title}}</h1>
+<form>
+  <fieldset>
+    <legend>Профиль</legend>
+    <label>Имя или ник <input name="display_name"></label>
+    <label>Ссылка на аватар <input type="url" name="avatar_url"></label>
+    <label>Биография <textarea name="bio"></textarea></label>
+    <label>Интересы <input name="interests"></label>
+    <label>Навыки <input name="skills"></label>
+    <label>Ссылки на портфолио <textarea name="portfolio_links"></textarea></label>
+  </fieldset>
+  <fieldset>
+    <legend>Оформление</legend>
+    <label>Тема <select name="theme"><option>Системная</option><option>Светлая</option><option>Тёмная</option></select></label>
+  </fieldset>
+  <fieldset>
+    <legend>Уведомления</legend>
+    <label><input type="checkbox" name="replies"> Ответы</label>
+    <label><input type="checkbox" name="solutions"> Новые решения</label>
+    <label><input type="checkbox" name="team_applications"> Заявки в команду</label>
+    <label><input type="checkbox" name="project_updates"> Изменения проекта</label>
+    <label><input type="checkbox" name="recommendations"> Новые задачи по интересам</label>
+    <label>Частота <select name="frequency"><option>Сразу</option><option>Раз в день</option><option>Раз в неделю</option></select></label>
+  </fieldset>
+  <button type="button" disabled>Сохранить настройки</button>
+</form>
+{{template "end" .}}

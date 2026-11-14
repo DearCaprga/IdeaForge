@@ -1,0 +1,65 @@
+{{template "start" .}}
+<h1>{{.Title}}</h1>
+<div class="catalog">
+  <aside aria-label="Фильтры">
+    <details class="panel">
+      <summary>Фильтры</summary>
+      <form>
+        <label>Поиск <input type="search" name="q"></label>
+        <label>Категория
+          <select name="category"><option value="">Любая</option><option value="academic">Учебно-научные</option><option value="product_case">Продуктовые кейсы</option><option value="development">Разработка</option></select>
+        </label>
+        <label>Предметная область <input name="topic"></label>
+        <label>Сложность
+          <select name="difficulty"><option value="">Любая</option><option value="beginner">Начальная</option><option value="intermediate">Средняя</option><option value="advanced">Продвинутая</option><option value="expert">Экспертная</option></select>
+        </label>
+        <label>Срок
+          <select name="duration"><option value="">Любой</option><option value="week">До недели</option><option value="month">До месяца</option><option value="quarter">1–3 месяца</option><option value="longer">Больше 3 месяцев</option></select>
+        </label>
+        <label>Статус
+          <select name="status"><option value="">Любой</option><option value="open">Открыт</option><option value="in_progress">В работе</option><option value="solutions_published">Решения опубликованы</option></select>
+        </label>
+        <label>Навыки <input name="skills"></label>
+        <label>Технологии <input name="technologies"></label>
+        <label>Опубликовано после <input type="date" name="published_after"></label>
+        <label>Опубликовано до <input type="date" name="published_before"></label>
+        <label><input type="checkbox" name="team_available" value="true"> Доступна командная работа</label>
+        <label><input type="checkbox" name="verified_source" value="true"> Подтверждённый источник</label>
+        <details>
+          <summary>Учебно-научные проекты</summary>
+          <label>Предмет <input name="subject"></label>
+          <label>Раздел предмета <input name="subject_area"></label>
+          <label>Уровень образования <input name="education_level"></label>
+          <label>Формат исследования <input name="research_format"></label>
+          <label>Оборудование <input name="equipment"></label>
+        </details>
+        <details>
+          <summary>Продуктовые кейсы</summary>
+          <label>Сфера <input name="industry"></label>
+          <label>Источник проблемы <input name="problem_source"></label>
+          <label>Тип задачи <input name="task_type"></label>
+          <label><input type="checkbox" name="has_solutions" value="true"> Есть решения</label>
+          <label><input type="checkbox" name="has_demand_signals" value="true"> Есть признаки востребованности</label>
+        </details>
+        <details>
+          <summary>Разработка</summary>
+          <label>Направление <input name="direction"></label>
+          <label>Языки <input name="languages"></label>
+          <label>Фреймворки <input name="frameworks"></label>
+          <label>Тип результата <input name="result_type"></label>
+          <label><input type="checkbox" name="has_alternatives" value="true"> Есть аналоги</label>
+        </details>
+        <button type="button" disabled>Применить</button>
+      </form>
+    </details>
+  </aside>
+  <section aria-labelledby="catalog-results">
+    <h2 id="catalog-results">Найденные проекты</h2>
+    <div class="links">
+      <label>Сортировка <select name="sort"><option value="newest">Новые</option><option value="popular">Популярные</option><option value="difficulty">По сложности</option></select></label>
+      <label>Вид <select name="view"><option value="grid">Сетка</option><option value="list">Список</option></select></label>
+    </div>
+    {{template "project-card"}}
+  </section>
+</div>
+{{template "end" .}}

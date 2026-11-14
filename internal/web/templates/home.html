@@ -1,0 +1,28 @@
+{{template "start" .}}
+<h1>Найди идею. Создай проект. Реши реальную проблему</h1>
+<form class="search" action="/catalog" method="get" role="search">
+  <label for="home-search">Поиск проектов</label>
+  <input id="home-search" type="search" name="q" placeholder="Telegram-бот, экология, физика">
+  <button>Найти проект</button>
+</form>
+<p><a href="/projects/new">Предложить идею</a></p>
+<section>
+  <h2>Направления</h2>
+  <nav class="links" aria-label="Направления">
+    <a href="/catalog?category=academic">Учебно-научные</a>
+    <a href="/catalog?category=product_case">Продуктовые кейсы</a>
+    <a href="/catalog?category=development">Разработка</a>
+  </nav>
+</section>
+<section><h2>Популярные проекты</h2>{{template "project-card"}}</section>
+<nav class="links" aria-label="Подборки">
+  <a href="/catalog?difficulty=beginner">Для начинающих</a>
+  <a href="/catalog?verified_source=true">Реальные задачи</a>
+  <a href="/catalog?team_available=true">Ищут команду</a>
+</nav>
+<section><h2>Новые решения</h2>{{template "solution-card"}}</section>
+<section>
+  <h2>Как это работает</h2>
+  <ol><li>Найти задачу</li><li>Изучить условия</li><li>Начать работу</li><li>Опубликовать решение</li></ol>
+</section>
+{{template "end" .}}

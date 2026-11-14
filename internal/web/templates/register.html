@@ -1,0 +1,10 @@
+{{template "start" .}}
+<h1>{{.Title}}</h1>
+<form class="panel" method="post">
+  <label>Имя или ник <input name="display_name" autocomplete="nickname" required></label>
+  <label>Почта <input name="email" type="email" autocomplete="email" required></label>
+  <label>Пароль <input name="password" type="password" autocomplete="new-password" required></label>
+  <button type="button" disabled>Зарегистрироваться</button>
+</form>
+<p><a href="/login">Перейти ко входу</a></p>
+{{template "end" .}}

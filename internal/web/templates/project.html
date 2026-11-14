@@ -1,0 +1,37 @@
+{{template "start" .}}
+<p><a href="/catalog">Каталог проектов</a></p>
+<h1>Telegram-бот для уведомлений об изменении расписания</h1>
+<p class="metadata">Разработка · Начальный уровень · 2–3 недели · Решение опубликовано</p>
+<p><a href="/users/user-1">Алекс Морозов</a> · 20 октября 2026</p>
+<p><a href="https://example.org/cases/schedule">Источник кейса</a> · Пример отметки о проверке</p>
+<div class="links">
+  <a href="/projects/{{.ResourceID}}/work">Начать проект</a>
+  <a href="/projects/{{.ResourceID}}/teams">Найти команду</a>
+  <a href="/projects/{{.ResourceID}}/edit">Редактировать проект</a>
+  <button type="button" disabled>В избранное</button>
+  <button type="button" disabled>Поделиться</button>
+</div>
+<nav class="links" aria-label="Разделы проекта">
+  <a href="#description">Описание</a><a href="#solutions">Решения</a><a href="#discussion">Обсуждение</a>
+</nav>
+<section id="description">
+  <h2>Описание</h2>
+  <dl>
+    <dt>Проблема</dt><dd>Студенты не всегда узнают об изменениях расписания вовремя.</dd>
+    <dt>Актуальность</dt><dd>Уведомления помогают узнавать о переносах до начала занятий.</dd>
+    <dt>Цель и результат</dt><dd>Бот, инструкция и репозиторий проекта.</dd>
+    <dt>Критерии успеха</dt><dd>Уведомления приходят корректно, настройки сохраняются.</dd>
+    <dt>Ресурсы</dt><dd>Основы Python, работа с API и хранение данных.</dd>
+  </dl>
+  <a href="/projects/{{.ResourceID}}/work">Этапы работы</a>
+</section>
+<section id="solutions">
+  <h2>Решения</h2>
+  {{template "solution-card"}}
+  <p><a href="/projects/{{.ResourceID}}/solutions/new">Опубликовать решение</a></p>
+</section>
+<section id="discussion">
+  <h2>Обсуждение</h2>
+  {{template "discussion-form"}}
+</section>
+{{template "end" .}}

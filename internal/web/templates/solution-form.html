@@ -1,0 +1,15 @@
+{{template "start" .}}
+<h1>{{.Title}}</h1>
+<form class="panel">
+  <label>Название <input name="title" required></label>
+  <label>Аннотация <textarea name="summary" required></textarea></label>
+  <label>Подход <textarea name="approach"></textarea></label>
+  <label>Технологии <input name="technologies"></label>
+  <label>Этапы реализации <textarea name="steps"></textarea></label>
+  <label>Результат <textarea name="result"></textarea></label>
+  <label>Ссылки на материалы <textarea name="links"></textarea></label>
+  <label>Вложения <input type="file" name="attachments" multiple></label>
+  <label>Известные ограничения <textarea name="limitations"></textarea></label>
+  <button type="button" disabled>Сохранить решение</button>
+</form>
+{{template "end" .}}

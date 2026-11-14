@@ -1,0 +1,17 @@
+{{template "start" .}}
+<p><a href="/projects/project-1">К проекту</a></p>
+<h1>Бот для проверки расписания</h1>
+<p>Подписчики получают сообщения, когда меняется расписание их группы.</p>
+<p class="links">
+  <a href="/solutions/{{.ResourceID}}/edit">Редактировать</a>
+  <button type="button" disabled>Отметить полезным</button>
+</p>
+<dl>
+  <dt>Технологии</dt><dd>Python, Telegram Bot API</dd>
+  <dt>Реализация</dt><dd>Подписка на группу, проверка расписания, отправка уведомлений.</dd>
+  <dt>Результат</dt><dd>Демонстрационный бот с уведомлениями.</dd>
+  <dt>Ограничения</dt><dd>Использует демонстрационный источник расписания.</dd>
+</dl>
+<section><h2>История обновлений</h2><p>Первая версия.</p></section>
+<section><h2>Обратная связь</h2>{{template "discussion-form"}}</section>
+{{template "end" .}}

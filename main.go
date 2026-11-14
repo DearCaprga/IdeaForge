@@ -1,14 +1,19 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"log"
+	"os"
 
-func health(c *gin.Context) {
-	c.JSON(200, gin.H{"status": "okeyyy"})
-}
+	"github.com/DearCaprga/IdeaForge/internal/app"
+)
 
 func main() {
-	r := gin.Default()
-	//aaaaa
-	r.GET("/health", health)
-	r.Run(":8080")
+	address := os.Getenv("HTTP_ADDR")
+	if address == "" {
+		address = ":8080"
+	}
+
+	if err := app.NewRouter().Run(address); err != nil {
+		log.Fatal(err)
+	}
 }
